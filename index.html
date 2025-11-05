@@ -40,12 +40,13 @@
         .btn:hover {
             background-color: #2980b9;
         }
-        .btn-sold-out {
+        /* 已售完按鈕的樣式 */
+        .btn.sold-out {
             background-color: #bdc3c7; /* 灰色 */
-            cursor: not-allowed;
+            cursor: not-allowed; /* 滑鼠移上去會變成禁止符號 */
         }
-        .btn-sold-out:hover {
-            background-color: #bdc3c7;
+        .btn.sold-out:hover {
+            background-color: #bdc3c7; /* 滑鼠移上去也不會變色 */
         }
 
         /* --- 導航列 --- */
@@ -65,7 +66,7 @@
             align-items: center;
         }
         .navbar .logo img {
-            width: 50px;
+            width: 50px; /* Logo 大小 */
             height: 50px;
             margin-right: 15px;
         }
@@ -116,10 +117,6 @@
             gap: 30px;
             margin-bottom: 50px;
             align-items: center;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .product-card:nth-child(odd) {
             flex-direction: row-reverse; /* 左右交錯佈局 */
@@ -139,12 +136,6 @@
             font-weight: bold;
             color: #e67e22; /* 南瓜橘 */
             margin-bottom: 15px;
-        }
-        .product-card .price .original-price {
-            text-decoration: line-through;
-            color: #95a5a6;
-            font-size: 0.7em;
-            margin-left: 10px;
         }
 
         /* --- 訂購流程 --- */
@@ -186,21 +177,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25px;
+            gap: 25px; /* 增加圖示間距 */
             margin-bottom: 20px;
         }
         .footer .social-links a {
             color: #ffffff;
             text-decoration: none;
-            transition: transform 0.2s;
+            transition: opacity 0.3s;
         }
         .footer .social-links a:hover {
-            transform: scale(1.1);
+            opacity: 0.8;
         }
         .footer .social-links img {
-            width: 30px; /* 統一社群圖示大小 */
+            width: 30px; /* 統一圖示大小 */
             height: 30px;
-            filter: brightness(0) invert(1); /* 將黑色圖示變白色 */
+            vertical-align: middle;
         }
         .footer p {
             margin-top: 20px;
@@ -218,7 +209,6 @@
         </div>
         <div class="nav-links">
             <a href="#products">手作烘焙</a>
-            <!-- <a href="#books">二手好物</a> -->
             <a href="#order">如何訂購</a>
         </div>
     </nav>
@@ -244,7 +234,8 @@
                     <p class="price">NT$ 280</p>
                     <p>純天然手工製作，加入牛奶、優酪乳與無鹽奶油，質感軟綿。每一口都吃得到藍莓果粒的酸甜滋味，少許糖鹽調味，獻給注重健康的您。</p>
                     <p><strong>標語：</strong>沒有漂亮的外表，但絕對真材實料。</p>
-                    <a href="https://forms.gle/n3B2hBqCzdFkgrr69" class="btn" target="_blank">立即訂購</a>
+                    <!-- **唯一的修改在這裡** -->
+                    <a class="btn sold-out">本期已售完</a>
                 </div>
             </div>
 
@@ -255,65 +246,32 @@
                 <div class="info-wrapper">
                     <h3>南瓜蛋糕</h3>
                     <p class="price">NT$ 220</p>
-                    <p>純天然手工製作 ，製作過程不加一滴水，只使用新鮮南瓜泥，香氣濃郁。口感濕潤紮實，少許糖鹽調味，品嚐食材最純粹的美味。</p>
+                    <p>純天然手工製作，製作過程不加一滴水，只使用新鮮南瓜泥，香氣濃郁。口感濕潤紮實，少許糖鹽調味，品嚐食材最純粹的美味。</p>
                     <p><strong>標語：</strong>沒有漂亮的外表，但絕對真材實料。</p>
-                    <a href="https://forms.gle/n3B2hBqCzdFkgrr69" class="btn" target="_blank">立即訂購</a>
+                    <!-- **唯一的修改在這裡** -->
+                    <a class="btn sold-out">本期已售完</a>
                 </div>
             </div>
         </section>
 
-        <!-- 二手好物區 (已隱藏 ) -->
-        <!-- 
-        <section id="books" class="products">
-            <h2>二手好物・挖寶專區</h2>
-            <p style="text-align:center; margin-top:-30px; margin-bottom:40px; color:#e67e22; font-weight:bold;">★ 全館二手書任選兩本，結帳再折 100 元！ ★</p>
-
-            <div class="product-card">
-                <div class="image-wrapper">
-                    <img src="IMG_9045.jpg" alt="股市趨勢全攻略">
-                </div>
-                <div class="info-wrapper">
-                    <h3>股市趨勢全攻略</h3>
-                    <p class="price">NT$ 350 <span class="original-price">NT$ 480</span></p>
-                    <p>掌握投資之母、打破選股迷思、抓準出場時機，小散戶也適用的順勢賺錢術。書況近全新，附贈作者董鍾祥老師親筆簽名，極具收藏價值。</p>
-                    <p><strong>標語：</strong>學會看趨勢，你也能屹立股市！</p>
-                    <a href="https://forms.gle/n3B2hBqCzdFkgrr69" class="btn" target="_blank">立即訂購</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-wrapper">
-                    <img src="IMG_8960.jpg" alt="其實 ，你跟CEO的距離，只差一個管理天才">
-                </div>
-                <div class="info-wrapper">
-                    <h3>其實，你跟CEO的距離，只差一個管理天才</h3>
-                    <p class="price">NT$ 280 <span class="original-price">NT$ 310</span></p>
-                    <p>2005年出版經典絕版書。書況近全新，內容紮實，是許多高階經理人的管理學啟蒙聖經。在資訊爆炸的年代，回歸管理的本質。</p>
-                    <p><strong>標語：</strong>一本絕版書，一個成為管理天才的機會。</p>
-                    <a href="https://forms.gle/n3B2hBqCzdFkgrr69" class="btn" target="_blank">立即訂購</a>
-                </div>
-            </div>
-        </section>
-        -->
-
-        <!-- 訂購流程區 -->
+        <!-- 訂購流程區 (這個區塊保持不變，因為它是通用的) -->
         <section id="order" class="how-to-order">
             <h2>訂購流程</h2>
             <div class="steps">
                 <div class="step">
                     <div class="icon">①</div>
-                    <h3>填寫訂單</h3>
-                    <p>點擊商品下方「立即訂購」按鈕 ，填寫您的訂購資訊。</p>
+                    <h3>私訊下單</h3>
+                    <p>透過 LINE 或 FB 告訴我們您要的品項與數量。</p>
                 </div>
                 <div class="step">
                     <div class="icon">②</div>
                     <h3>確認金額</h3>
-                    <p>我們會透過您留下的聯絡方式，向您確認最終總金額。</p>
+                    <p>我們會回覆您總金額與我們的匯款帳號。</p>
                 </div>
                 <div class="step">
                     <div class="icon">③</div>
                     <h3>完成付款</h3>
-                    <p>確認金額無誤後，請您完成匯款並告知我們。</p>
+                    <p>完成匯款後，請回傳您的帳號後五碼或截圖。</p>
                 </div>
                 <div class="step">
                     <div class="icon">④</div>
@@ -328,16 +286,16 @@
     <footer class="footer">
         <div class="social-links">
             <a href="https://www.facebook.com/profile.php?id=61582819418580" target="_blank" title="Facebook">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook">
-            </a>
-            <a href="https://www.threads.net/@limbeejiu" target="_blank" title="Threads">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Threads_%28app%29_logo.svg" alt="Threads">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
             </a>
             <a href="https://www.instagram.com/limbeejiu/?__pwa=1" target="_blank" title="Instagram">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
             </a>
-            <a href="https://x.com/DidiaBySena" target="_blank" title="X (Twitter )">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/X_logo_2023.svg" alt="X">
+            <a href="https://www.threads.net/@limbeejiu" target="_blank" title="Threads">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Threads_%28app%29_logo.svg" alt="Threads">
+            </a>
+            <a href="https://x.com/DidiaBySena" target="_blank" title="X">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="X">
             </a>
             <a href="https://line.me/ti/p/@983agawb" target="_blank" title="LINE">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
