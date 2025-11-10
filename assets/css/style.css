@@ -169,4 +169,45 @@ footer .socials li {
         display: inline; /* 在手機上，顯示手機版的文字連結 */
     }
 }
+/* ==========================================================================
+   v3.7 頁尾終極改造：品牌加冕美學
+   ========================================================================== */
+
+.socials {
+    list-style: none;
+    display: flex; /* 讓圖示橫向排列 */
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.socials li {
+    margin: 0 15px; /* 設定圖示之間的間距 */
+}
+
+.socials a, .line-link-desktop > span {
+    font-size: 2.5rem; /* 設定圖示的大小 (2.5倍的根字體大小) */
+    color: #4a4a4a; /* 設定圖示的預設顏色 */
+    transition: color 0.3s ease; /* 讓顏色變化有平滑的過渡效果 */
+}
+
+/* 當滑鼠移到圖示上時，改變圖示的顏色 */
+.socials a:hover, .line-link-desktop:hover > span {
+    color: #007bff; /* 滑鼠懸停時的顏色 (一個明亮的藍色) */
+}
+
+/* 針對 LINE 的特殊顏色 */
+.socials a[title="LINE"]:hover, .line-link-desktop:hover > span[title="LINE"] {
+    color: #06C755; /* LINE 的官方綠色 */
+}
+
+/* 針對 Facebook 的特殊顏色 */
+.socials a[title="Facebook"]:hover {
+    color: #1877F2; /* Facebook 的官方藍色 */
+}
+
+/* 針對 X 的特殊顏色 */
+.socials a[title="X (Twitter)"]:hover {
+    color: #000000; /* X 的黑色 */
+}
 
