@@ -82,3 +82,43 @@ h2 {
     padding-bottom: 10px;
     margin-top: 2rem;
 }
+/* ========== v3.2 終極和諧 (總指揮美學藍圖) ========== */
+
+/* 1. 導航列重構：LOGO 居中，選單下移 */
+
+/* 首先，讓整個 <nav> 容器變成一個可以垂直排列的彈性盒子 */
+nav {
+    flex-direction: column; /* 將主軸從「水平」變為「垂直」 */
+    align-items: center;    /* 讓所有子項目在交叉軸上（現在是水平方向）置中 */
+    padding-bottom: 1rem;   /* 在導航列底部增加一些留白 */
+}
+
+/* 接著，為 LOGO 下方的選單 <ul>，也設定置中 */
+nav ul {
+    justify-content: center; /* 讓選單項目本身也置中 */
+    width: 100%;             /* 讓它佔滿寬度，確保置中效果 */
+    margin-top: 1rem;        /* 在 LOGO 和選單之間，增加一點垂直距離 */
+}
+
+
+/* 2. 頁尾重構：全面置中 */
+
+/* 讓整個 <footer> 容器裡的所有文字，都預設置中 */
+footer {
+    text-align: center;
+}
+
+/* 讓頁尾的社群連結列表 <ul>，也變成一個置中的彈性盒子 */
+footer .socials {
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+/* 為社群連結之間，增加一些水平間距 */
+footer .socials li {
+    margin: 0 15px; /* 左右各 15px 的間距 */
+}
+
