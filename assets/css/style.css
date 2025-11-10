@@ -154,10 +154,12 @@ footer .socials li {
     z-index: 10; /* 確保它顯示在最上層 */
 }
 
-/* 當滑鼠移到「LINE 官方帳號」文字上時，顯示 QR Code */
-.line-link-desktop:hover .line-qrcode-image {
+/* 【精靈的牢籠！】當滑鼠在下方圖示上，或者在 QR Code 自己身上時，都顯示 QR Code */
+.line-link-desktop:hover .line-qrcode-image,
+.line-qrcode-image:hover {
     display: block;
 }
+
 
 /* 手機版樣式：當螢幕寬度小於 768px 時生效 */
 @media (max-width: 768px) {
