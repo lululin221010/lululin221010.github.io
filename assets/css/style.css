@@ -121,4 +121,52 @@ footer .socials {
 footer .socials li {
     margin: 0 15px; /* 左右各 15px 的間距 */
 }
+/* ==========================================================================
+   v3.6 頁尾終極改造：雙軌並行魔法
+   ========================================================================== */
+
+/* 預設狀態：電腦版樣式 */
+.line-link-mobile {
+    display: none; /* 在電腦上，隱藏手機版的文字連結 */
+}
+
+.line-link-desktop {
+    position: relative; /* 讓 QR Code 可以定位 */
+    display: inline-block;
+}
+
+.line-link-desktop > span {
+    cursor: pointer; /* 讓滑鼠移上去時，看起來像可以點擊 */
+    text-decoration: underline;
+}
+
+.line-qrcode-image {
+    display: none; /* 預設先隱藏 QR Code */
+    position: absolute;
+    bottom: 150%; /* 顯示在文字的上方 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px; /* QR Code 的寬度 */
+    height: 150px; /* QR Code 的高度 */
+    border: 3px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 10; /* 確保它顯示在最上層 */
+}
+
+/* 當滑鼠移到「LINE 官方帳號」文字上時，顯示 QR Code */
+.line-link-desktop:hover .line-qrcode-image {
+    display: block;
+}
+
+/* 手機版樣式：當螢幕寬度小於 768px 時生效 */
+@media (max-width: 768px) {
+    .line-link-desktop {
+        display: none; /* 在手機上，隱藏電腦版的 QR Code 結構 */
+    }
+
+    .line-link-mobile {
+        display: inline; /* 在手機上，顯示手機版的文字連結 */
+    }
+}
 
