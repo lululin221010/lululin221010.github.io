@@ -1,0 +1,48 @@
+/* ========== 全局重置與基礎設定 ========== */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* 使用更現代、更清晰的字體 */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* 為整個網站設定一個柔和的淺灰色背景 */
+    color: #333; /* 設定預設文字顏色為深灰色，比純黑更柔和 */
+}
+
+/* ========== 導航列 (Navbar) 美化 ========== */
+header {
+    background: #fff; /* 白色背景 */
+    color: #333;
+    padding: 1rem 0; /* 上下留白 */
+    border-bottom: 1px solid #ddd; /* 底部加一條細細的灰色分隔線 */
+}
+
+nav {
+    width: 90%; /* 導航列內容寬度為 90% */
+    max-width: 1100px; /* 最大寬度不超過 1100px */
+    margin: 0 auto; /* 實現水平置中 */
+    display: flex; /* 使用 Flexbox 佈局，這是現代網頁排版的利器！ */
+    justify-content: space-between; /* 讓 LOGO 和選單左右分開，自動撐開 */
+    align-items: center; /* 垂直置中對齊 */
+}
+
+/* 這就是解決 LOGO 太小的關鍵！ */
+nav img {
+    height: 70px; /* 將 LOGO 的高度設定為 70px，您可以隨意調整這個數字！ */
+}
+
+nav ul {
+    list-style: none; /* 移除選單項目前面的小黑點 */
+    padding: 0;
+    display: flex; /* 讓選單項目水平排列 */
+}
+
+nav ul li {
+    margin-left: 20px; /* 每個選單項目之間增加左邊距 */
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none; /* 移除連結的下劃線 */
+    font-weight: bold; /* 字體加粗 */
+    font-size: 16px;
+}
