@@ -1,308 +1,113 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>有的沒的小舖</title>
-    <style>
-        /* --- 全局樣式 --- */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            background-color: #fdfbf7; /* 溫暖的米白底色 */
-            color: #3d3d3d;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            font-weight: 600;
-            color: #2c3e50; /* 深藍灰色，增加質感 */
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px; /* 圓角圖片 */
-        }
-        .btn {
-            display: inline-block;
-            background-color: #3498db; /* 藍莓藍 */
-            color: #ffffff;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #2980b9;
-        }
-        /* 已售完按鈕的樣式 */
-        .btn.sold-out {
-            background-color: #bdc3c7; /* 灰色 */
-            cursor: not-allowed; /* 滑鼠移上去會變成禁止符號 */
-        }
-        .btn.sold-out:hover {
-            background-color: #bdc3c7; /* 滑鼠移上去也不會變色 */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>有的沒的小舖 - 手作的溫度・好物的延續・夢想的寄託</title>
 
-        /* --- 導航列 --- */
-        .navbar {
-            background-color: #ffffff;
-            padding: 15px 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .navbar .logo {
-            display: flex;
-            align-items: center;
-        }
-        .navbar .logo img {
-            width: 50px; /* Logo 大小 */
-            height: 50px;
-            margin-right: 15px;
-        }
-        .navbar .logo span {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .navbar .nav-links a {
-            color: #555;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
+  <!-- =================================================================
+       【任務四：作戰羅盤】Google Analytics 追蹤碼預留位置
+       未來當您申請好 GA 帳號後，將追蹤碼貼在這裡。
+       ================================================================== -->
+  <!-- Google Analytics Code Goes Here -->
 
-        /* --- 主視覺區 --- */
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background-color: #ecf0f1; /* 淺灰色背景 */
-        }
-        .hero .logo-main {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 20px;
-            border-radius: 50%; /* 讓主Logo變圓形 */
-        }
-        .hero h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-        }
-        .hero p {
-            font-size: 1.2em;
-            color: #7f8c8d;
-        }
-
-        /* --- 產品區 --- */
-        .products {
-            padding: 60px 0;
-        }
-        .products h2 {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.2em;
-        }
-        .product-card {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 50px;
-            align-items: center;
-        }
-        .product-card:nth-child(odd) {
-            flex-direction: row-reverse; /* 左右交錯佈局 */
-        }
-        .product-card .image-wrapper {
-            flex: 1;
-        }
-        .product-card .info-wrapper {
-            flex: 1;
-        }
-        .product-card h3 {
-            font-size: 1.8em;
-            margin-top: 0;
-        }
-        .product-card .price {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #e67e22; /* 南瓜橘 */
-            margin-bottom: 15px;
-        }
-
-        /* --- 訂購流程 --- */
-        .how-to-order {
-            background-color: #ffffff;
-            padding: 60px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-        .how-to-order h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.2em;
-        }
-        .steps {
-            display: flex;
-            justify-content: space-around;
-            gap: 20px;
-            text-align: center;
-        }
-        .step {
-            flex: 1;
-        }
-        .step .icon {
-            font-size: 3em;
-            color: #3498db;
-            margin-bottom: 10px;
-        }
-
-        /* --- 頁尾 --- */
-        .footer {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-        .footer .social-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px; /* 增加圖示間距 */
-            margin-bottom: 20px;
-        }
-        .footer .social-links a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        .footer .social-links a:hover {
-            opacity: 0.8;
-        }
-        .footer .social-links img {
-            width: 30px; /* 統一圖示大小 */
-            height: 30px;
-            vertical-align: middle;
-        }
-        .footer p {
-            margin-top: 20px;
-            font-size: 0.9em;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- 導航列 -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="有的沒的小舖 Logo">
-            <span>有的沒的小舖</span>
-        </div>
-        <div class="nav-links">
-            <a href="#products">手作烘焙</a>
-            <a href="#order">如何訂購</a>
-        </div>
+  <!-- =================================================================
+       全站通用導航列 (Navigation Bar) 開始
+       ================================================================== -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">有的沒的小舖</a>
+      <ul>
+        <li><a href="sena-items.html">Sena 的好物</a></li>
+        <li><a href="market.html">Lulu 的朋友圈</a></li>
+        <li><a href="about.html">關於我們</a></li>
+      </ul>
     </nav>
+  </header>
+  <!-- =================================================================
+       全站通用導航列 (Navigation Bar) 結束
+       ================================================================== -->
 
-    <!-- 主視覺區 -->
-    <header class="hero">
-        <img src="logo.png" alt="有的沒的小舖 Logo" class="logo-main">
-        <h1>有的沒的小舖</h1>
-        <p>手作烘焙 · 二手好物 · 精選新品，寄賣平台</p>
-    </header>
+  <!-- =================================================================
+       首頁主要內容 (Main Content) 開始
+       ================================================================== -->
+  <main>
+    <!-- 區域一：品牌門面 (Hero Section) -->
+    <section class="hero">
+      <h1>手作的溫度・好物的延續・夢想的寄託</h1>
+      <p>這裡是 Sena 和店長 Lulu 一起打造的溫暖角落，分享我們所愛的一切。</p>
+      <a href="about.html" class="button">認識我們的故事</a>
+    </section>
 
-    <main class="container">
-        <!-- 產品展示區 -->
-        <section id="products" class="products">
-            <h2>純天然手作的美好</h2>
+    <hr>
 
-            <div class="product-card">
-                <div class="image-wrapper">
-                    <img src="blueberry_toast.jpg" alt="藍莓吐司">
-                </div>
-                <div class="info-wrapper">
-                    <h3>藍莓吐司</h3>
-                    <p class="price">NT$ 280</p>
-                    <p>純天然手工製作，加入牛奶、優酪乳與無鹽奶油，質感軟綿。每一口都吃得到藍莓果粒的酸甜滋味，少許糖鹽調味，獻給注重健康的您。</p>
-                    <p><strong>標語：</strong>沒有漂亮的外表，但絕對真材實料。</p>
-                    <!-- **唯一的修改在這裡** -->
-                    <a class="btn sold-out">本期已售完</a>
-                </div>
-            </div>
+    <!-- 區域二：「三駕馬車」核心業務入口 -->
+    <section class="core-services">
+      <h2>我們的服務</h2>
+      
+      <!-- 馬車一：Sena 的手作 -->
+      <div class="service-card">
+        <h3>Sena 的快閃廚房</h3>
+        <p>不定期開張，以純天然食材製作的暖心烘焙。限量是殘酷的，但美味是真實的。</p>
+        <p><strong>狀態：本期已完售，敬請期待下次開張！</strong></p>
+        <a href="handmade.html" class="button-disabled">查看手作故事</a>
+      </div>
 
-            <div class="product-card">
-                <div class="image-wrapper">
-                    <img src="pumpkin_cake.jpg" alt="南瓜蛋糕">
-                </div>
-                <div class="info-wrapper">
-                    <h3>南瓜蛋糕</h3>
-                    <p class="price">NT$ 220</p>
-                    <p>純天然手工製作，製作過程不加一滴水，只使用新鮮南瓜泥，香氣濃郁。口感濕潤紮實，少許糖鹽調味，品嚐食材最純粹的美味。</p>
-                    <p><strong>標語：</strong>沒有漂亮的外表，但絕對真材實料。</p>
-                    <!-- **唯一的修改在這裡** -->
-                    <a class="btn sold-out">本期已售完</a>
-                </div>
-            </div>
-        </section>
+      <!-- 馬車二：Sena 的二手好物 -->
+      <div class="service-card">
+        <h3>Sena 的二手好物</h3>
+        <p>Sena 親自挑選的二手書籍與生活雜貨，每一樣物品，都在等待它的下一位知音。</p>
+        <p><strong>優惠活動：任選兩本，結帳再折 100 元！</strong></p>
+        <a href="sena-items.html" class="button">前往挖寶</a>
+      </div>
 
-        <!-- 訂購流程區 (這個區塊保持不變，因為它是通用的) -->
-        <section id="order" class="how-to-order">
-            <h2>訂購流程</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="icon">①</div>
-                    <h3>私訊下單</h3>
-                    <p>透過 LINE 或 FB 告訴我們您要的品項與數量。</p>
-                </div>
-                <div class="step">
-                    <div class="icon">②</div>
-                    <h3>確認金額</h3>
-                    <p>我們會回覆您總金額與我們的匯款帳號。</p>
-                </div>
-                <div class="step">
-                    <div class="icon">③</div>
-                    <h3>完成付款</h3>
-                    <p>完成匯款後，請回傳您的帳號後五碼或截圖。</p>
-                </div>
-                <div class="step">
-                    <div class="icon">④</div>
-                    <h3>訂單成立</h3>
-                    <p>確認款項後，我們將為您安排出貨或自取事宜。</p>
-                </div>
-            </div>
-        </section>
-    </main>
+      <!-- 馬車三：Lulu 的朋友圈 -->
+      <div class="service-card">
+        <h3>Lulu 的朋友圈</h3>
+        <p>你的閒置好物，也能在這裡找到新家。這是一個讓好物價值延續的社群平台。</p>
+        <p><strong>服務：提供付費廣告版位，讓您的寶貝被更多人看見。</strong></p>
+        <a href="market.html" class="button">逛逛市集</a>
+        <a href="rules.html" class="button-secondary">了解如何加入</a>
+      </div>
+    </section>
 
-    <!-- 頁尾 -->
-    <footer class="footer">
-        <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61582819418580" target="_blank" title="Facebook">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/limbeejiu/?__pwa=1" target="_blank" title="Instagram">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-            </a>
-            <a href="https://www.threads.net/@limbeejiu" target="_blank" title="Threads">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Threads_%28app%29_logo.svg" alt="Threads">
-            </a>
-            <a href="https://x.com/DidiaBySena" target="_blank" title="X">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="X">
-            </a>
-            <a href="https://line.me/ti/p/@983agawb" target="_blank" title="LINE">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
-            </a>
-        </div>
-        <p>&copy; 2025 有的沒的小舖. All Rights Reserved.</p>
-    </footer>
+    <hr>
+
+    <!-- 區域三：【第四戰區】未來擴充區 -->
+    <section class="special-feature">
+      <h2>特別企劃</h2>
+      <p>店長 Lulu 正在秘密籌備中... 下一個「有的沒的」，會是什麼呢？敬請期待！</p>
+    </section>
+
+  </main>
+  <!-- =================================================================
+       首頁主要內容 (Main Content) 結束
+       ================================================================== -->
+
+  <!-- =================================================================
+       全站通用頁尾 (Footer) 開始
+       ================================================================== -->
+  <footer>
+    <div class="social-links">
+      <a href="https://manager.line.biz/account/@983agawb" target="_blank">LINE</a>
+      <a href="https://www.facebook.com/profile.php?id=61583165781632" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/limbeejiu/" target="_blank">Instagram</a>
+      <a href="https://x.com/DidiaBySena" target="_blank">X (Twitter )</a>
+      <a href="https://www.threads.com/@limbeejiu" target="_blank">Threads</a>
+    </div>
+    <div class="legal-links">
+      <a href="terms.html">服務條款</a>
+    </div>
+    <div class="copyright">
+      &copy; 2025 有的沒的小舖. All Rights Reserved.
+    </div>
+  </footer>
+  <!-- =================================================================
+       全站通用頁尾 (Footer ) 結束
+       ================================================================== -->
 
 </body>
 </html>
